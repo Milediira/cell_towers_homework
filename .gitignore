@@ -1,0 +1,46 @@
+# System
+airflow/upload-data/*
+!airflow/upload-data/others
+
+# Celery
+celerybeat-*
+
+
+# Environments
+.venv
+airflow/.env
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.idea
+
+# Distribution / packaging
+.Python
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyCache
+__pycache__
+files
+celerybeat-schedule.db
+celerybeat-schedule.dat
+celerybeat-schedule.bak
+celerybeat-schedule.dir
+

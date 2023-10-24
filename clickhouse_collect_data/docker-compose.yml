@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  ch_server:
+    image: yandex/clickhouse-server
+    ports:
+      - "8123:8123"
+    volumes:
+      - clickhouse-vol:/var/lib/clickhouse
+      - ./db:/docker-entrypoint-initdb.d/
+    networks:
+        - ch_ntw
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  ch_client:
+    image: yandex/clickhouse-client
+    entrypoint:
+      - /bin/sleep
+    command:
+      - infinity
+    networks:
+        - ch_ntw
+
+networks:
+  ch_ntw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.222.1.0/24
+
+volumes:
+      clickhouse-vol:
